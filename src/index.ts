@@ -183,4 +183,4 @@ app.get("/api/v1/brain/share", (req, res) => {
 
 
 
-app.listen(3000);
+app.listen(process.env.PORT ||3000);
