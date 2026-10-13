@@ -13,7 +13,7 @@ const app = express();
 const corsOptions = {
   origin: [
     'http://localhost:5173',
-    'https://second-brain-frontend-jet.vercel.app'
+    'https://second-brain-flax-omega.vercel.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
