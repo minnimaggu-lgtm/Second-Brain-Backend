@@ -88,6 +88,7 @@ app.post("/api/v1/signin",async (req, res) => {
 
         return res.status(200).json({
             Message: "Signedin",
+            username: signinBody.username,
             Jwt_token: token
         })
 
@@ -177,8 +178,17 @@ app.delete("/api/v1/content",async (req, res) => {
     try{
         const deleteBody = result.data;
         const deleteQuery = await ContentModel.deleteOne({_id: deleteBody.id});
-    }catch(e){
 
+        if(deleteQuery.acknowledged){
+            return res.status(200).json({
+                "Message":"Succesfully Deleted the content"
+            })
+        }
+    }catch(e){
+        console.error(e);
+        return res.status(500).json({
+            "Message": "Server error"
+        })
     }
 
 })
